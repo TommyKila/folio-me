@@ -1,0 +1,258 @@
+header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+}
+
+.menu {
+    position: absolute;
+    right: 4vw;
+    cursor: pointer;
+    top: 7vh;
+    height: 35px;
+    width: 35px;
+    z-index: 999;
+}
+
+.line {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--black);
+    transition: 0.2s ease-out;
+    -webkit-transition: 0.2s ease-out;
+    transform: none;
+    margin-bottom: 5px;
+}
+
+.line-1 {
+    margin-top: 9px;
+}
+
+.line-2 {
+    transition-delay: 0.1s;
+    -webkit-transition-delay: 0.1s;
+}
+
+.menu-active .line {
+    background-color: var(--white);
+}
+
+.menu-active .line-1 {
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+}
+
+.menu-active .line-2 {
+    transform: rotate(-225deg);
+    -webkit-transform: rotate(-225deg);
+    -o-transform: rotate(-225deg);
+    margin-top: -7px;
+}
+
+.site-nav {
+    z-index: 555;
+    height: 0;
+    width: 100%;
+    position: relative;
+}
+
+.site-nav .nav-column {
+    background-color: var(--black);
+    position: fixed;
+    height: 0;
+    top: 0;
+    width: 25%;
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
+}
+
+.nav-column-1 {
+    left: 0;
+    border-right: 1px solid var(--greyish-black);
+}
+
+.nav-column-2 {
+    left: 25%;
+    border-right: 1px solid var(--greyish-black);
+}
+
+.nav-column-3 {
+    left: 50%;
+    border-right: 1px solid var(--greyish-black);
+}
+
+.nav-column-4 {
+    left: 75%;
+}
+
+.nav-active,
+.nav-active .nav-column {
+    height: 100%;
+}
+
+.nav-wrapper ul {
+    position: absolute;
+    top: 25vh;
+    left: 25vw;
+    transform: translateY(-200%);
+    transition: 0.5s;
+}
+
+.nav-wrapper li {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nav-wrapper a {
+    position: relative;
+    color: var(--grey);
+    font-size: 2.87vw;
+    font-weight: 500;
+    transform: translateX(-120%);
+    -webkit-transform: translateX(-120%);
+    display: inline-block;
+    opacity: 0;
+    transition: 0.6s ease-out;
+    letter-spacing: 2px;
+    margin-bottom: 0.6987em;
+    margin-left: 1.245em;
+}
+
+.nav-active ul {
+    transform: translateY(0);
+}
+
+.nav-active .nav-link {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translate(0);
+}
+
+.nav-wrapper a:hover:before,
+.social-me a:hover:before {
+    color: var(--white);
+    width: 100%;
+}
+
+.nav-wrapper a::before,
+.social-me a::before {
+    content: attr(data-content);
+    position: absolute;
+    left: 0;
+    width: 0;
+    color: rgb(80, 80, 80);
+    overflow: hidden;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.active-page::before {
+    color: var(--white) !important;
+    width: 100% !important;
+}
+
+.menu-item {
+    position: absolute;
+    transform: translateY(-200%);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.nav-active .menu-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.info-wrapper .info-me {
+    top: 70vh;
+    left: 6vw;
+    width: 16vw;
+}
+
+.info-me h2 {
+    color: var(--grey);
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 0.9vw;
+    text-transform: uppercase;
+    margin-bottom: 1.763em;
+}
+
+.info-me p {
+    color: var(--white);
+    line-height: 2;
+    font-size: 1.153vw;
+}
+
+.info-me p:first-of-type {
+    margin-bottom: 1.857em;
+}
+
+.social-wrapper .social-me {
+    top: 30vh;
+    right: 16vw;
+}
+
+.social-me li {
+    margin-bottom: 1.25vw;
+    overflow: hidden;
+}
+
+.social-me a {
+    color: var(--grey);
+    font-size: 1.4vw;
+    transform: translateY(120%);
+    transition: 0.6s ease-out;
+    display: inline-block;
+    opacity: 0;
+}
+
+.nav-active .social-me a {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.email-container {
+    overflow: hidden;
+    width: 25vw;
+}
+
+.nav-active .email-me {
+    transition: 0.9s;
+}
+
+.email-me {
+    top: 70vh;
+    left: 50vw;
+    opacity: 0;
+    transition: 0.3s;
+    transform: translateY(-500%);
+}
+
+.email-me a {
+    color: var(--grey);
+    font-size: 6.25vw;
+    transition: 0.3s ease-out;
+    display: inline-block;
+    animation: linear rotatingEmail 8s infinite alternate;
+}
+
+.email-me a:hover {
+    color: var(--white);
+}
+
+@keyframes rotatingEmail {
+    0% {
+        transform: translateX(1%);
+    }
+
+    100% {
+        transform: translateX(-59%);
+    }
+}
